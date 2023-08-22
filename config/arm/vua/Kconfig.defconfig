@@ -6,7 +6,7 @@
 if BOARD_VUA_DONGLE
 
 config ZMK_KEYBOARD_NAME
-	default "VUA dongle"
+	default "VUA Dongle"
 
 config ZMK_SPLIT
 	default y

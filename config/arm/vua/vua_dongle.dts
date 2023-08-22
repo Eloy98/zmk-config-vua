@@ -1,0 +1,36 @@
+/*
+*
+* Copyright (c) 2023 Vincent Nguyen
+* SPDX-License-Identifier: MIT
+*
+*/
+
+#include "vua.dtsi"
+
+/{
+    ext-power {
+            compatible = "zmk,ext-power-generic";
+            label = "EXT_POWER";
+            control-gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
+            init-delay-ms = <50>;
+        };
+};
+
+/{
+    kscan0: kscan {
+            compatible = "zmk,kscan-gpio-matrix";
+            label = "KSCAN";
+
+            diode-direction = "row2col";
+
+            row-gpios
+                = <&gpio0 9  GPIO_ACTIVE_HIGH>
+                ;
+            col-gpios
+                = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                ;
+    };
+
+};   
+
+
