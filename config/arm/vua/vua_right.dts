@@ -6,6 +6,7 @@
 */
 
 #include "vua.dtsi"
+#include <dt-bindings/led/led.h>
 
 / {
     chosen {
@@ -14,9 +15,20 @@
 };
 
 /{
+    leds {
+        compatible = "gpio-leds";
+        blue_led: led_1 {
+            gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
+            label = "Blue LED Left";
+        };
+    };
+
     vbatt: vbatt {
         compatible = "zmk,battery-voltage-divider";
         label = "VBATT";
+        io-channels = <&adc 3>;
+		output-ohms = <2000000>;
+		full-ohms = <(2000000 + 820000)>;
     };
 
     kscan0: kscan {
@@ -26,23 +38,24 @@
             diode-direction = "row2col";
 
             row-gpios
-                = <&gpio0 3  GPIO_ACTIVE_HIGH>
-                , <&gpio1 15 GPIO_ACTIVE_HIGH>
-                , <&gpio1 14 GPIO_ACTIVE_HIGH>
-                , <&gpio1 13 GPIO_ACTIVE_HIGH>
-                , <&gpio1 12 GPIO_ACTIVE_HIGH>
+                = <&gpio0 12 GPIO_ACTIVE_HIGH>
+                , <&gpio0 4  GPIO_ACTIVE_HIGH>
+                , <&gpio0 8  GPIO_ACTIVE_HIGH>
+                , <&gpio0 6  GPIO_ACTIVE_HIGH>
+                , <&gpio1 0  GPIO_ACTIVE_HIGH>
                 ;
+                
             col-gpios
-                = <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio0 30 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                = <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
                 , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-                , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio0 30 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio1 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+                , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
                 ;
     };
 
