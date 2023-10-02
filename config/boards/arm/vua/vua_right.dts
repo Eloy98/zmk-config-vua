@@ -31,10 +31,6 @@
 		full-ohms = <(2000000 + 820000)>;
     };
 
-    &default_transform {
-        col-offset = <9>;
-    };
-
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
@@ -64,3 +60,6 @@
 
 };   
 
+&default_transform {
+    col-offset = <9>;
+};
