@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: MIT
 #
 
-if BOARD_VUA_DONGLE
+if BOARD_VUA_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "VU.A"
+	default "VUA"
 
 config ZMK_SPLIT
 	default y
@@ -31,7 +31,7 @@ config SPI
 
 endif # BOARD_VUA_LEFT || BOARD_VUA_RIGHT
 
-if BOARD_VUA_LEFT || BOARD_VUA_RIGHT || BOARD_VUA_DONGLE
+if BOARD_VUA_LEFT || BOARD_VUA_RIGHT
 
 config ZMK_SPLIT
 	default y
@@ -53,6 +53,6 @@ endif # USB
 config BT_CTLR
 	default BT
 
-endif # BOARD_VUA_LEFT || BOARD_VUA_RIGHT || BOARD_VUA_DONGLE
+endif # BOARD_VUA_LEFT || BOARD_VUA_RIGHT
 
 

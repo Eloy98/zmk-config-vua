@@ -13,6 +13,5 @@
 #
 ---
 include:
-  - board: vua_dongle
   - board: vua_left
   - board: vua_right

@@ -11,6 +11,5 @@ outputs:
   - usb
   - ble
 siblings:
-  - vua_dongle
   - vua_left
   - vua_right
