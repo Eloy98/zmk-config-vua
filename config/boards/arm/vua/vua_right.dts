@@ -15,14 +15,6 @@
 };
 
 /{
-    leds {
-        compatible = "gpio-leds";
-        blue_led: led_1 {
-            gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
-            label = "Blue LED Left";
-        };
-    };
-
     vbatt: vbatt {
         compatible = "zmk,battery-voltage-divider";
         label = "VBATT";
